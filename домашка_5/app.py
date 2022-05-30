@@ -1,21 +1,23 @@
 
  
-def longest_words(file, lines_of_file):   
-    for i in  range(lines_of_file):
-        print(file.read())
-        if file != " ":     
-            string = file.read(i)
-            print(string)
-        else:
-            pass
+
+
+
+f_t = open("/Users/alex/Desktop/test-python/домашка_5/article.txt", "r")
 
 
 
 
-file = open("/Users/alex/Desktop/test-python/домашка_5/article.txt", "r")
 
-
-longest_words(file,9)
-
-
+def longest_words(file):
+    with open(file, encoding='utf-8') as text:
+        words = text.read().split()
+        max_length = len(max(words, key=len))
+        sought_words = [word for word in words if len(word) == max_length]
+        if len(sought_words) == 1:
+            return sought_words[0]
+        return sought_words
+ 
+ 
+print(longest_words("/Users/alex/Desktop/test-python/домашка_5/article.txt"))
 
