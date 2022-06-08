@@ -36,8 +36,8 @@ def max_number(list):
    Max = 0
    for item in list:
        if item > Max:
-           Max=item
-   return int(Max)
+           Max = item
+   return Max
 
 def min_number(list):
     Min = list[0]
