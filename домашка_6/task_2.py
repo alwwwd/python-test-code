@@ -1,89 +1,59 @@
 import random as rand
-rand_numbers_1 = []
-rand_numbers_2 = []
-rand_numbers_3 = []
 
 # generate random numbers in list 
-def rand_numbers(
-    rand_numbers_1,
-    rand_numbers_2):
-    for i in range(0,10):
-        gen_number1 = rand.randint(10,31)
-        rand_numbers_1.append(gen_number1)
+def generate_list_of_integers_in_range(min_value,max_value,number_of_values):
+    list_of_values = []
+    for i in range(0,number_of_values):
+        list_of_values.append(rand.randint(min_value,max_value))
 
-        gen_number2 = rand.randint(10,31)
-        rand_numbers_2.append(gen_number2)
-    return f"первый список ({rand_numbers_1}),\nвторой список ({rand_numbers_2})," 
+    return list_of_values
 
 # sum lists function 
-def sum_lists(
-    rand_numbers_1,
-    rand_numbers_2,
-    rand_numbers_3):
-        for i in range(0,10):
-            rand_numbers_3.append(
-                rand_numbers_1[i]+rand_numbers_2[i]
-            )
-        return f"несортированый третий список ({rand_numbers_3}),"
-
-# arithmetic meanfunction
-def arithmetic_mean(
-    rand_numbers_3=rand_numbers_3):
-    for i in range(1,10):
-        a = rand_numbers_3[i-1]+ rand_numbers_3[i]
-        a =int(a/len(rand_numbers_3))
-    return f"среднее арефмитическое третего списка ({a})"
-
-# sort lists
-    
-  
-def greater(a, b):
-    return a > b
-
-def less(a, b):
-    return a < b
-
-def sort(arr, flag):
-    if flag:
-        func = greater
+def sum_lists(summand_list_1, summand_list_2):
+    result_list = []
+    if len(summand_list_1) > len(summand_list_2):
+        operations_number = len(summand_list_2)
+    elif len(summand_list_1) < len(summand_list_2):
+        operations_number = len(summand_list_1)
     else:
-        func = less
+        operations_number = len(summand_list_1)
 
-    for i in range(len(arr)):
-        moving_flag = True
-        for j in range(len(arr) - 1 - i):
-            if func(arr[j], arr[ j + 1]):
-                temp = arr[j]
-                arr[j] = arr[j + 1]
-                arr[j + 1] = temp
-                moving_flag = False
+    for i in range(0,operations_number):
+        result_list.append(summand_list_1[i]+summand_list_2[i])
 
-        if moving_flag:
-            break
-    return f"cортированый третий список({arr}),"
+    return result_list
 
-
+# arithmetic mean function
+def arithmetic_mean(list):
+    sum = 0
+    for i in range(0,len(list)):
+        sum += list[i]
+    
+    return sum/len(list)
 
 
-print(
-    rand_numbers(
-        rand_numbers_1,
-        rand_numbers_2)
-        )
+def max_number(list):
+   Max = 0
+   for item in list:
+       if item > Max:
+           Max=item
+   return int(Max)
 
-print(
-    sum_lists(
-        rand_numbers_1,
-        rand_numbers_2,
-        rand_numbers_3)
-        )
+def min_number(list):
+    Min = list[0]
+    for i in list[0:]:
+        if i < Min:
+            Min = i
+    return Min
 
-print(
-    sort(
-    rand_numbers_3, 
-    "less")
-    )
-print(
-    arithmetic_mean()
-    )
-print(max(rand_numbers_3))
+list_1 = generate_list_of_integers_in_range(10, 31, 10)
+list_2 = generate_list_of_integers_in_range(10, 31, 11)
+list_3 = sum_lists(list_1,list_2)
+print(list_1)
+print(list_2)
+print(list_3)
+print(arithmetic_mean(list_3))
+maximum_number =  max_number(list_3)
+print(maximum_number)
+minimum_number = min_number(list_3)
+print(minimum_number)
