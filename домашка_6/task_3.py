@@ -11,16 +11,15 @@
 # how_many_even_numbers = number_is_digits(int(input("введите числа:")))
 # print(f"{how_many_even_numbers} чётных цифр")
 
-def digits_of_even_digits(number : int):
+def digits_of_even_digits(number):
+    even_digits = 0
+    while number > 0:
+        first_digit = number % 10
+        if  first_digit % 2 == 0:
+            even_digits += 1
+            number //= 10    
 
-        even_digits = 0
-        while number > 0:
-                first_digit = number % 10
-                if  first_digit % 2 == 0:
-                        even_digits += 1
-                number //= 10    
-
-        return even_digits 
+    return even_digits 
 
 
 print(digits_of_even_digits(24688))
