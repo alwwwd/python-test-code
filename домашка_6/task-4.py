@@ -1,16 +1,18 @@
-def countVowels(string,flag):
+def countVowels(string,flag : str):
    en_vowels = ['a','e','i','o','u']
-   ru_vowels = []
+   ru_vowels = ['а','е','ё','и','у','я','ю','о','ы']
    total = 0
-   if flag == "en":
-      for s in string:
-         if s in en_vowels:
+
+   if flag == 'ru':
+      vowels = ru_vowels
+   elif flag == 'en':
+      vowels = en_vowels
+
+   for s in string:
+         if s in vowels:
             total += 1
-   elif flag == "ru":
-      for s in string:
-         if s in ru_vowels:
-            total += 1
+      
    return total
 
 
-countVowels(input("введите строку:"),"en")
+countVowels(input("введите строку: "),"en")
