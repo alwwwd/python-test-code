@@ -15,4 +15,4 @@ def countVowels(string,flag : str):
    return total
 
 
-countVowels(input("введите строку: "),"en")
+print(countVowels(input("введите строку: "),"ru"))

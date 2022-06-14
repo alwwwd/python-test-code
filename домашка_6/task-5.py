@@ -1,10 +1,8 @@
-sp = "   "
-st = "*"
-def add_spase(sp,i):
+def draw_pyramide(size : int):
+    for i in range(size):
+        print(" " * (size - i - 1),end="")
+        for j in range(i+1):
+            print("*",end=" ")
+        print("")
 
-    for i in range(1,6):
-        if i ==  1:
-            print(f"{sp}{st}")
-        
-        else:
-            print(sp * i, st * i)
+draw_pyramide(15)
