@@ -7,3 +7,6 @@ print(int(random.random() * 1000) % 243 + 86)
 
 
 
+
+
+

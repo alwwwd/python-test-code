@@ -1,44 +1,45 @@
-class cube:
-    cube_height : int 
-    cube_length : int
-    cube_width :  int 
+class Cube:
+    height : int 
+    length : int
+    width :  int 
     
-    def __init__(self, cube_h_l_w): # в cube_h_l_w хранится длинна, ширина и высота: она  одна       
-        self.cube_height = cube_h_l_w
-        self.cube_length = cube_h_l_w
-        self.cube_width = cube_h_l_w
-    
-    def upper_cube(self, number_for_up):
-        self.cube_height += number_for_up
-        self.cube_length += number_for_up
-        self.cube_width += number_for_up
+    def __init__(self, size): # в cube_h_l_w хранится длинна, ширина и высота: она  одна       
+        self.height = size
+        self.length = size
+        self.width = size
 
-    def reset_cube_params(self):
-        self.cube_height = 0
-        self.cube_length = 0
-        self.cube_width = 0
 
-    def in_cube_square_res(self):
-        H = self.cube_height ** 2  * 6
+    def change_size_by_number(self, number_for_up):
+        self.height *= number_for_up
+        self.length *= number_for_up
+        self.width *= number_for_up
+
+    def reset_size(self):
+        self.height = 0
+        self.length = 0
+        self.width = 0
+
+    def get_surface_square(self):
+        H = self.height ** 2 * 6
         return H
 
-    def cube_volume(self):
-        result = self.cube_height * self.cube_length * self.cube_width
+    def get_volume(self):
+        result = self.height * self.length * self.width
         
         return result
 
-    def all_about_cube(self):
-        print(f"cube height is {self.cube_height}")
-        print(f"cube length is {self.cube_length}")
-        print(f"cube width is {self.cube_width}")
+    def print_info(self):
+        print(f"cube height is {self.height}")
+        print(f"cube length is {self.length}")
+        print(f"cube width is {self.width}")
 
-first_cube = cube(10)
-res = first_cube.cube_volume()
+first_cube = Cube(2000)
+res = first_cube.get_volume()
 
 print(f"cube volume result is {res}")
 
-first_cube.all_about_cube()
+first_cube.print_info()
 
-cube_square_res = first_cube.in_cube_square_res()
+cube_square_res = first_cube.get_surface_square()
 
 print(cube_square_res)
